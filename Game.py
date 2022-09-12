@@ -1,23 +1,21 @@
-fillename = open('book.txt','r', encoding='utf-8')
+class TextConverter():
 
-def opened():
-    fillename = open('book.txt')
-    return fillename
+    def opened(self,url):
+        return open(url,'r')
 
+    def text_splitter(self,url):
+        input_content = self.opened(url)
+        return input_content.read().split()
 
-def rehab():
-    with opened() as file:
-        for line in file:
-            for word in line.split():
-                print(word)
+    def text_processor(self,url,start_with_letter):
+        words_count = 0
+        text = self.text_splitter(url)
+        for i in text:
+            if i.lower().startswith(start_with_letter):
+                words_count += 1
 
+        print(words_count)
 
-def conts():
-    text = fillename.read()
-    se = "A"
-    t = text.count(se)
-    print(str(t))
-conts()
 
 
 
